@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💧 Save the Drop - Game</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <!-- ====== GAME SCREEN ====== -->
+  <div id="game-screen" class="screen active">
+    <div class="game-layout">
+      <!-- Game Area (Left Side) -->
+      <div class="game-section">
+        <div id="game-area">
+          <div id="player"></div>
+        </div>
+      </div>
+      
+      <!-- UI Panel (Right Side) -->
+      <div class="ui-section">
+        <div class="ui-panel">
+          <div class="game-info">
+            <div id="score" class="info-item">
+              <span class="info-label">Score</span>
+              <span class="info-value">0</span>
+            </div>
+            <div id="lives" class="info-item">
+              <span class="info-label">Lives</span>
+              <span class="info-value">3</span>
+            </div>
+            <div id="time" class="info-item">
+              <span class="info-label">Time</span>
+              <span class="info-value">60s</span>
+            </div>
+          </div>
+          
+          <div class="game-controls">
+            <h3>Controls</h3>
+            <p class="controls-text">Use ← → or A D to move</p>
+            <div class="control-hint">
+              <p>💧 Collect clean raindrops</p>
+              <p>🗑️ Avoid falling trash</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====== GAME OVER SCREEN ====== -->
+  <div id="gameover-screen" class="screen hidden">
+    <div class="gameover-container">
+      <div class="gameover-content">
+        <h1>💀 Game Over</h1>
+        <div class="final-score">
+          <p>Your final score:</p>
+          <span id="final-score" class="score-display">0</span>
+        </div>
+        <div class="gameover-buttons">
+          <button onclick="goToMenu()" class="btn primary">Play Again</button>
+          <button onclick="goToMainMenu()" class="btn">Main Menu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
