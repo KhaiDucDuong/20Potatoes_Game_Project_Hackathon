@@ -59,43 +59,43 @@ function startGame() {
 const resultCategories = [
   {
     name: "Water Guardian",
-    condition: (raindrops, trash) => raindrops >= 20 && trash <= 5,
-    image: "assets/water_guardian.jpg",
+    condition: (raindrops, trash) => raindrops >= 30 && trash <= 5,
+    image: "assets/very-good-ending.jfif",
     title: "🌊 Water Guardian",
     quote: "You're a true water guardian! Your dedication to collecting clean water while avoiding pollution shows your commitment to environmental protection."
   },
   {
     name: "Clean Water Champion",
-    condition: (raindrops, trash) => raindrops >= 15 && trash <= 10,
-    image: "assets/clean_water_champion.jpg", 
+    condition: (raindrops, trash) => raindrops >= 20 && trash <= 5,
+    image: "assets/good-ending.jpg", 
     title: "💧 Clean Water Champion",
     quote: "Excellent work! You've shown great skill in collecting clean water. Every drop you save helps protect our precious water resources."
   },
   {
     name: "Water Warrior",
-    condition: (raindrops, trash) => raindrops >= 10 && trash <= 15,
-    image: "assets/water_warrior.jpg",
+    condition: (raindrops, trash) => raindrops >= 10 && trash <= 10,
+    image: "assets/neutral-ending.jpg",
     title: "⚔️ Water Warrior", 
     quote: "You're fighting the good fight for clean water! Your efforts to collect more raindrops than trash show your environmental awareness."
   },
   {
-    name: "Learning Water Protector",
-    condition: (raindrops, trash) => raindrops >= 5,
-    image: "assets/learning_protector.jpg",
-    title: "🌱 Learning Water Protector",
-    quote: "You're on your way to becoming a water protector! Remember: every clean raindrop collected makes a difference in our fight against water pollution."
-  },
-  {
     name: "Pollution Fighter",
-    condition: (raindrops, trash) => trash > raindrops,
-    image: "assets/pollution_fighter.jpg",
+    condition: (raindrops, trash) => trash >= 10,
+    image: "assets/very-bad-ending.jpg",
     title: "🗑️ Pollution Fighter",
     quote: "You've encountered some pollution, but that's part of the challenge! Keep fighting for clean water - every effort counts in protecting our environment."
   },
   {
+    name: "Learning Water Protector",
+    condition: (raindrops, trash) => raindrops < 10 && trash >= 5,
+    image: "assets/bad-ending.jpg",
+    title: "🌱 Learning Water Protector",
+    quote: "You're on your way to becoming a water protector! Remember: every clean raindrop collected makes a difference in our fight against water pollution."
+  },
+  {
     name: "Water Explorer",
     condition: (raindrops, trash) => true, // Default fallback
-    image: "assets/water_explorer.jpg",
+    image: "assets/neutral-ending.jpg",
     title: "🌍 Water Explorer",
     quote: "Your journey in water conservation has begun! Every step towards understanding water pollution helps us protect our planet's most precious resource."
   }
