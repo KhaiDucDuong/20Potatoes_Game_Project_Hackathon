@@ -21,13 +21,13 @@
       <div class="ui-section">
         <div class="ui-panel">
           <div class="game-info">
-            <div id="score" class="info-item">
-              <span class="info-label">Score</span>
+            <div id="raindrops" class="info-item">
+              <span class="info-label">💦 Raindrops</span>
               <span class="info-value">0</span>
             </div>
-            <div id="lives" class="info-item">
-              <span class="info-label">Lives</span>
-              <span class="info-value">3</span>
+            <div id="trash" class="info-item">
+              <span class="info-label">🗑️ Trash</span>
+              <span class="info-value">0</span>
             </div>
             <div id="time" class="info-item">
               <span class="info-label">Time</span>
@@ -48,16 +48,35 @@
     </div>
   </div>
 
-  <!-- ====== GAME OVER SCREEN ====== -->
-  <div id="gameover-screen" class="screen hidden">
-    <div class="gameover-container">
-      <div class="gameover-content">
-        <h1>💀 Game Over</h1>
-        <div class="final-score">
-          <p>Your final score:</p>
-          <span id="final-score" class="score-display">0</span>
+  <!-- ====== RESULTS SCREEN ====== -->
+  <div id="results-screen" class="screen hidden">
+    <div class="results-container">
+      <div class="results-content">
+        <div class="results-image">
+          <img id="result-image" src="" alt="Result Image" />
         </div>
-        <div class="gameover-buttons">
+        
+        <div class="results-info">
+          <h1 id="result-title">Your Water Journey</h1>
+          
+          <div class="final-stats">
+            <div class="stat-item">
+              <span class="stat-label">💦 Raindrops Collected:</span>
+              <span id="final-raindrops" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">🗑️ Trash Hit:</span>
+              <span id="final-trash" class="stat-value">0</span>
+            </div>
+          </div>
+          
+          <div class="result-fact">
+            <h3>💡 Water Fact</h3>
+            <p id="result-quote">Your dedication to clean water makes a difference!</p>
+          </div>
+        </div>
+        
+        <div class="results-buttons">
           <button onclick="goToMenu()" class="btn primary">Play Again</button>
           <button onclick="goToMainMenu()" class="btn">Main Menu</button>
         </div>

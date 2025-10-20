@@ -1,7 +1,7 @@
 // ====== GAME STATE ======
 let currentScreen = "menu";
-let score = 0;
-let lives = 3;
+let raindropCount = 0;
+let trashCount = 0;
 let gameSpeed = 2;
 let spawnRate = 0.02;
 let gameLoop;
@@ -29,8 +29,8 @@ function showScreen(id) {
 
 function startGame() {
   // Reset all game state
-  score = 0;
-  lives = 3;
+  raindropCount = 0;
+  trashCount = 0;
   gameSpeed = 2;
   spawnRate = 0.02;
   playerX = 400; // Center of the larger game area
@@ -42,8 +42,8 @@ function startGame() {
   keys.right = false;
 
   // Update display
-  document.querySelector("#score .info-value").innerText = score;
-  document.querySelector("#lives .info-value").innerText = lives;
+  document.querySelector("#raindrops .info-value").innerText = raindropCount;
+  document.querySelector("#trash .info-value").innerText = trashCount;
   document.querySelector("#time .info-value").innerText = maxGameTime + "s";
   
   // Show game screen and initialize
@@ -55,9 +55,73 @@ function startGame() {
   }, 100);
 }
 
+// ====== RESULTS SYSTEM ======
+const resultCategories = [
+  {
+    name: "Water Guardian",
+    condition: (raindrops, trash) => raindrops >= 20 && trash <= 5,
+    image: "assets/water_guardian.jpg",
+    title: "🌊 Water Guardian",
+    quote: "You're a true water guardian! Your dedication to collecting clean water while avoiding pollution shows your commitment to environmental protection."
+  },
+  {
+    name: "Clean Water Champion",
+    condition: (raindrops, trash) => raindrops >= 15 && trash <= 10,
+    image: "assets/clean_water_champion.jpg", 
+    title: "💧 Clean Water Champion",
+    quote: "Excellent work! You've shown great skill in collecting clean water. Every drop you save helps protect our precious water resources."
+  },
+  {
+    name: "Water Warrior",
+    condition: (raindrops, trash) => raindrops >= 10 && trash <= 15,
+    image: "assets/water_warrior.jpg",
+    title: "⚔️ Water Warrior", 
+    quote: "You're fighting the good fight for clean water! Your efforts to collect more raindrops than trash show your environmental awareness."
+  },
+  {
+    name: "Learning Water Protector",
+    condition: (raindrops, trash) => raindrops >= 5,
+    image: "assets/learning_protector.jpg",
+    title: "🌱 Learning Water Protector",
+    quote: "You're on your way to becoming a water protector! Remember: every clean raindrop collected makes a difference in our fight against water pollution."
+  },
+  {
+    name: "Pollution Fighter",
+    condition: (raindrops, trash) => trash > raindrops,
+    image: "assets/pollution_fighter.jpg",
+    title: "🗑️ Pollution Fighter",
+    quote: "You've encountered some pollution, but that's part of the challenge! Keep fighting for clean water - every effort counts in protecting our environment."
+  },
+  {
+    name: "Water Explorer",
+    condition: (raindrops, trash) => true, // Default fallback
+    image: "assets/water_explorer.jpg",
+    title: "🌍 Water Explorer",
+    quote: "Your journey in water conservation has begun! Every step towards understanding water pollution helps us protect our planet's most precious resource."
+  }
+];
+
+function getResultCategory(raindrops, trash) {
+  for (let category of resultCategories) {
+    if (category.condition(raindrops, trash)) {
+      return category;
+    }
+  }
+  return resultCategories[resultCategories.length - 1]; // Fallback to last category
+}
+
 function endGame() {
-  document.getElementById("final-score").innerText = score;
-  showScreen("gameover-screen");
+  const result = getResultCategory(raindropCount, trashCount);
+  
+  // Update the results screen
+  document.getElementById("result-image").src = result.image;
+  document.getElementById("result-image").alt = result.name;
+  document.getElementById("result-title").innerText = result.title;
+  document.getElementById("result-quote").innerText = result.quote;
+  document.getElementById("final-raindrops").innerText = raindropCount;
+  document.getElementById("final-trash").innerText = trashCount;
+  
+  showScreen("results-screen");
 }
 
 function goToMenu() {
@@ -222,19 +286,13 @@ function checkCollisions() {
         playerRect.bottom > objectRect.top) {
       
       if (object.classList.contains("trash")) {
-        // Hit trash - lose life
-        lives--;
-        document.querySelector("#lives .info-value").innerText = lives;
-        
-        if (lives <= 0) {
-          clearInterval(gameLoop);
-          endGame();
-          return;
-        }
+        // Hit trash - count it
+        trashCount++;
+        document.querySelector("#trash .info-value").innerText = trashCount;
       } else if (object.classList.contains("raindrop")) {
-        // Hit raindrop - gain score
-        score += 10;
-        document.querySelector("#score .info-value").innerText = score;
+        // Hit raindrop - count it
+        raindropCount++;
+        document.querySelector("#raindrops .info-value").innerText = raindropCount;
       }
       
       // Remove the object
@@ -265,8 +323,9 @@ function updateGame() {
     return;
   }
   
-  // Increase difficulty over time
-  if (score > 0 && score % 100 === 0) {
+  // Increase difficulty based on total collisions
+  const totalCollisions = raindropCount + trashCount;
+  if (totalCollisions > 0 && totalCollisions % 10 === 0) {
     gameSpeed += gameSpeedIncrease;
     spawnRate += spawnRateIncrease;
     
