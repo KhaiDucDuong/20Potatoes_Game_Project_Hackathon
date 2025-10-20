@@ -1,0 +1,60 @@
+## Game Architecture
+```
+Build modular game structure:
+- Game state management
+- Object management system
+- Collision detection
+- Input handling
+- Results system
+- Clean separation of concerns
+```
+
+## Player Movement
+```
+Implement smooth movement:
+- Continuous movement while keys held
+- Instant direction changes
+- Boundary checking
+- Touch controls for mobile
+- 60 FPS smooth animation
+```
+
+## Object System
+```
+Create object spawning:
+- Random positioning
+- Object type selection
+- Performance-based difficulty
+- Object lifecycle management
+- Memory-efficient creation
+```
+
+## Collision Detection
+```
+Build collision system:
+- Bounding box detection
+- Different object responses
+- Performance optimization
+- Clean object removal
+- Accurate hit detection
+```
+
+## Results System
+```
+Create dynamic results:
+- Performance-based categories
+- Educational content
+- Easy-to-modify system
+- Image and quote display
+- Personalized feedback
+```
+
+## Performance
+```
+Optimize for performance:
+- 60 FPS target
+- Efficient DOM manipulation
+- Memory management
+- Cross-browser compatibility
+- Mobile optimization
+```

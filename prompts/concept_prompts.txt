@@ -1,0 +1,53 @@
+## Core Game Concept
+```
+Create an environmental awareness game about water conservation:
+- Water droplet character collecting clean raindrops
+- Avoid falling trash/pollution
+- Educational content about water protection
+- Simple controls (left/right movement)
+- Progressive difficulty based on performance
+```
+
+## Gameplay Mechanics
+```
+Design core mechanics:
+- Collect clean raindrops (good items)
+- Avoid trash/pollution (bad items)
+- Track both types of interactions
+- Speed increases with total collisions
+- Time-based gameplay (1-3 minutes)
+- Results screen with educational facts
+```
+
+## Visual Design
+```
+Create visual style:
+- Use emoji for lightweight graphics
+- Water droplet (💧) as player
+- Clean raindrops (💦) to collect
+- Trash (🗑️) to avoid
+- Ocean/water gradient backgrounds
+- Glass-morphism UI effects
+```
+
+## Educational Goals
+```
+Define learning objectives:
+- Water pollution awareness
+- Environmental protection concepts
+- Hand-eye coordination
+- Decision-making skills
+- Positive environmental habits
+- Target: Ages 8-16
+```
+
+## Technical Requirements
+```
+Specify technical needs:
+- Web-based (HTML5, CSS3, JavaScript)
+- No external dependencies
+- Cross-browser compatibility
+- Mobile responsive
+- 60 FPS gameplay
+- < 1MB total size
+```
