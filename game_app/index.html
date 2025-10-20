@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>💧 Save the Drop</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- 🌊 Main Menu -->
+    <div id="menu-screen" class="screen active">
+      <div class="menu-container">
+        <img
+          src="assets/menu_logo.png"
+          alt="Save the Drop Logo"
+          class="game-logo"
+        />
+        <h1 class="game-title">Save the Drop</h1>
+        <p class="subtitle">Protect every drop from pollution!</p>
+
+        <div class="menu-buttons">
+          <button id="start-btn" class="btn primary">Play</button>
+          <button id="howto-btn" class="btn">How to Play</button>
+          <button id="credits-btn" class="btn">About</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 📘 How to Play Modal -->
+    <div id="howto-screen" class="screen hidden">
+      <div class="overlay">
+        <h2>How to Play</h2>
+        <ul>
+          <li>
+            🕹️ Use <b>← / →</b> or <b>A / D</b> to move your water droplet.
+          </li>
+          <li>💧 Collect <b>clean raindrops</b> to increase your score.</li>
+          <li>
+            🗑️ Avoid <b>trash</b> — each hit pollutes and costs you health!
+          </li>
+          <li>
+            ⏳ Survive the set time limit and collect as many raindrops as you
+            can.
+          </li>
+          <li>
+            🏁 Your score determines the ending — can you restore the river’s
+            purity?
+          </li>
+        </ul>
+        <button id="back-btn" class="btn">Back</button>
+      </div>
+    </div>
+
+    <!-- ⏳ Playtime Selection Modal -->
+    <div id="playtime-screen" class="screen hidden">
+      <div class="overlay">
+        <h2>Select Playtime</h2>
+        <p class="choose-time">How long can you protect the water?</p>
+        <div class="time-buttons">
+          <button class="time-btn" data-time="60">1 Minute</button>
+          <button class="time-btn" data-time="120">2 Minutes</button>
+          <button class="time-btn" data-time="180">3 Minutes</button>
+        </div>
+        <button id="cancel-btn" class="btn" style="margin-top: 1.5rem">
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!-- 👥 About Modal -->
+    <div id="about-screen" class="screen hidden">
+      <div class="overlay about-overlay">
+        <img
+          src="assets/menu_logo.png"
+          alt="Save the Drop Logo"
+          class="about-logo"
+        />
+        <h2>Save the Drop</h2>
+        <p class="about-theme">
+          Theme: <span>Save Water – Protect the Environment 🌿</span>
+        </p>
+
+        <div class="about-content">
+          <p class="about-desc">
+            A short web game raising awareness about water pollution and
+            sustainability. Survive as a little droplet and protect the clean
+            water from the falling trash!
+          </p>
+
+          <div class="team-section">
+            <h3>Our Team</h3>
+            <div class="team-grid">
+              <div class="member">Duc Khai</div>
+              <div class="member">Hong Thai</div>
+              <div class="member">Ngoc Luong</div>
+              <div class="member">Minh Quang</div>
+            </div>
+          </div>
+        </div>
+
+        <button id="about-back-btn" class="btn">Back</button>
+      </div>
+    </div>
+
+    <script src="menu.js"></script>
+  </body>
+</html>

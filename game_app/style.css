@@ -1,0 +1,300 @@
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Global */
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* align to top, not center */
+  background: linear-gradient(to bottom, #7dd3fc, #1e3a8a);
+  overflow: hidden;
+  color: #fff;
+  padding-top: 8vh; /* margin from top for breathing room */
+}
+
+/* Screen states */
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.3s ease;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.active {
+  opacity: 1;
+}
+
+/* Menu container */
+.menu-container {
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.game-title {
+  font-size: clamp(2rem, 5vw, 4rem); /* Responsive scaling */
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+}
+
+.menu-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+/* Buttons */
+.btn {
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  padding: clamp(0.8rem, 1.5vw, 1.2rem) clamp(1.5rem, 3vw, 2rem);
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  min-width: 180px;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+
+.btn.primary {
+  background: #22d3ee;
+  color: #0c4a6e;
+  font-weight: 600;
+  border: none;
+}
+
+.btn.primary:hover {
+  background: #0ea5e9;
+  color: white;
+}
+
+/* How to play overlay */
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  padding: 2rem;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 500px;
+  margin: auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.overlay h2 {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  margin-bottom: 1rem;
+  color: #a5f3fc;
+}
+
+.overlay ul {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+/* Responsive tweaks */
+@media (min-width: 1200px) {
+  body {
+    padding-top: 10vh;
+  }
+  .menu-container {
+    max-width: 700px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Playtime modal */
+#playtime-screen .overlay {
+  background: rgba(0, 0, 0, 0.7);
+  max-width: 480px;
+}
+
+.time-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.time-btn {
+  background: #22d3ee;
+  color: #0c4a6e;
+  border: none;
+  border-radius: 10px;
+  padding: clamp(0.7rem, 1.3vw, 1rem) clamp(1rem, 2vw, 1.5rem);
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.time-btn:hover {
+  background: #0ea5e9;
+  color: white;
+  transform: scale(1.05);
+}
+
+.time-btn.selected {
+  background: #0284c7;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(2, 132, 199, 0.6);
+}
+
+/* About Modal */
+#about-screen .overlay {
+  max-width: 480px;
+  background: rgba(0, 0, 0, 0.75);
+}
+
+.about-line {
+  margin: 0.8rem 0;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: #e0f2fe;
+}
+
+.team-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.team-list li {
+  margin: 0.3rem 0;
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: #bae6fd;
+}
+
+/* --- About Modal Improvements --- */
+.about-overlay {
+  max-width: 420px;
+  padding: 1.8rem 1.6rem;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 33, 45, 0.95),
+    rgba(8, 20, 25, 0.9)
+  );
+  border: 1px solid rgba(173, 216, 230, 0.25);
+  border-radius: 16px;
+  box-shadow: 0 0 24px rgba(0, 180, 255, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.8rem;
+}
+
+.about-overlay h2 {
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  margin-bottom: 0.3rem;
+  color: #a5f3fc;
+}
+
+.about-theme {
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  color: #e0f2fe;
+  margin-bottom: 0.8rem;
+}
+
+.about-theme span {
+  color: #7dd3fc;
+  font-weight: 600;
+}
+
+.about-desc {
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  color: #cce8f9;
+  margin: 0.5rem 0 1.2rem 0;
+  line-height: 1.4;
+  max-width: 90%;
+}
+
+.team-section {
+  width: 100%;
+  margin-bottom: 0.8rem;
+}
+
+.team-section h3 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  color: #93c5fd;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.4rem 1rem;
+  justify-items: center;
+}
+
+.member {
+  background: rgba(59, 130, 246, 0.15);
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  font-size: clamp(0.9rem, 1.4vw, 1rem);
+  color: #e0f2fe;
+  transition: background 0.3s ease;
+}
+
+.member:hover {
+  background: rgba(59, 130, 246, 0.25);
+}
+
+#about-back-btn {
+  margin-top: 1rem;
+  width: 60%;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+}
+
+/* --- Logo Styling --- */
+.game-logo {
+  width: clamp(120px, 20vw, 180px);
+  margin-bottom: 0.6rem;
+  user-select: none;
+}
+
+.about-logo {
+  width: clamp(80px, 18vw, 120px);
+  margin-bottom: 0.4rem;
+  user-select: none;
+  filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.4));
+}
