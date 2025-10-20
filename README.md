@@ -19,7 +19,7 @@ A simple yet engaging web-based game that raises awareness about water pollution
 
 ### Play the Game Online
 
-You can play the game online by visiting [this link](https://khaiducduong.github.io/20Potatoes_Game_Project_Hackathon/game_app/)
+You can play the game online by visiting [this link](https://khaiducduong.github.io/TwentyPotatoes_Game_Project_Hackathon/game_app/)
 
 ### Prerequisites
 - Any modern web browser (Chrome, Firefox, Safari, Edge)
